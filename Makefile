@@ -8,12 +8,18 @@ all:
 server:
 	jekyll --server 8080 --auto
 
+build:
+	jekyll
+	cp CNAME jekyll
+	
+clean:
+	rm -rf _site/
 
 #################################################################################
 #		deploy								#
 #################################################################################
 
-deploy:	deployGhPage
+deploy:	build deployGhPage
 
 deployGhPage:
 	rm -rf /tmp/$(PROJECT_NAME)GhPages
