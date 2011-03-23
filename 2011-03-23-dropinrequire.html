@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Initial Post</title>
+   <title>Drop-In require - a require() for the browser in 20 lines</title>
    <meta name="author" content="Jerome Etienne" />
 
    <!-- syntax highlighting CSS -->
@@ -19,18 +19,56 @@
   </div>
   
   <div id="post">
-<h1>Initial Post</h1>
-<p class="meta">10 March 2011 &#8211; Trying to blog again</p>
-<p>Trying to blog again. Here is my first post.</p>
-<p>Up to now i didnt considere my blogging seriously. My blog posts were kinda PostIts to me, some random texts that i have written not to forget. So the targeted reader was me, and if it helps people outthere, all for the best, but not the primary purpose.</p>
-<p>This blog is using <a href="http://jekyllrb.com/">jekyll</a> and will be hosted at <a href="http://notes.jetienne.com">notes.jetienne.com</a></p>
+<h1>Drop-In require - a require() for the browser in 20 lines</h1>
+
+<p class='meta'>23 March 2011 -</p>
+
+
+<h1>Drop-In require</h1>
+
+<p><a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a>
+is a drop-in replacement for commonjs <a href="http://www.commonjs.org/specs/modules/1.0/">module</a>
+in a browser. No server to run, No preprocessing of javascript files.
+It is very simple it needs only <a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/dropin_require.js#L1-20">20-lines</a>
+of js.</p>
+
+<p>If you are using <a href="http://nodejs.org">node.js</a> and are willing to share code with your browser without
+hassle, <a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> is for you.</p>
+
+<h2>How to use it</h2>
+
+<p>You just include this in your webpage</p>
+
+<pre><code>&lt;script type="text/javascript" src="./dropin_require.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>And after that you can use require(filename) to import your node module in the
+web browser.
+Suppose you got a module <code>foobar.js</code></p>
+
+<pre><code>exports.foo = "bar";
+</code></pre>
+
+<p>then this html will display <code>bar</code>. Here it is a <a href="http://jeromeetienne.github.com/dropinrequire.js/demo/">demo</a> to show, and not tell.</p>
+
+<pre><code>&lt;script src="../dropin_require.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    alert( require('./foobar.js').foo );
+&lt;/script&gt;
+</code></pre>
+
+<h2>About</h2>
+
+<p>The code is available on <a href="https://github.com/jeromeetienne/dropinrequire.js">github</a> under
+<a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/MIT-LICENSE.txt">MIT license</a> and has been
+written by <a href="http://jetienne.com">Jerome Etienne</a>.
+That's it. No fuss no muss.</p>
+
 </div>
 
 <div id="related">
   <h2>Related Posts</h2>
   <ul class="posts">
-    
-      <li><span>22 Mar 2011</span> &raquo; <a href="/2011/03/22/microeventjs.html">MicroEvent.js - micro event emitter in 20 lines</a></li>
     
   </ul>
 </div>
