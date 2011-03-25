@@ -132,6 +132,14 @@ ul.posts {
         color: #8085C1;
       }
 
+    .site .footer .account {
+      margin-right: 1em;
+    }
+
+      .site .footer .account a {
+        color: #8085C1;
+      }
+
     .site .footer .rss {
       margin-top: 1.1em;
       margin-right: -.2em;
