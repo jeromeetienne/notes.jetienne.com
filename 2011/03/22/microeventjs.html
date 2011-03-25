@@ -13,12 +13,12 @@
 <body>
 
 <div class="site">
-  <div class="title">
-    <a href="/">Jerome Etienne</a>
-    <a class="extra" href="/">home</a>
-  </div>
+	<div class="title">
+		<a href="/">Jerome Etienne</a>
+		<a class="extra" href="http://jetienne.com">Homepage</a>
+	</div>
   
-  <div id="post">
+	<div id="post">
 <h1>MicroEvent.js - micro event emitter in 20 lines</h1>
 
 <p class='meta'>22 March 2011 -</p>
@@ -112,31 +112,22 @@ Feel free to fork, modify and have fun with it :)</p>
   <h2>Related Posts</h2>
   <ul class="posts">
     
+      <li><span>23 Mar 2011</span> &raquo; <a href="/2011/03/23/dropinrequire.html">DropinRequire - Experimental require for browsers in 20 lines</a></li>
+    
       <li><span>10 Mar 2011</span> &raquo; <a href="/2011/03/10/initial-post.html">Initial Post</a></li>
     
   </ul>
 </div>
   
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Jerome Etienne<br />
-        jerome.etienne@gmail.com
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/jeromeetienne/">github.com/jeromeetienne</a><br />
-        <a href="http://twitter.com/jerome_etienne/">twitter.com/jerome_etienne</a><br />
-      </p>
-    </div>
-  </div>
+	<div class="footer">
+		<div class="credits">
+			<p>
+				made by <a href='http://twitter.com/jerome_etienne'>@jerome_etienne</a>
+			</p>
+		</div>
+	</div>
 </div>
 
-<!-- follow me on twitter --> 
-<a href="http://www.twitter.com/jerome_etienne"><img style="position: absolute; top: 10px; right: 10px; border: 0;" src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow jerome_etienne on Twitter"/></a> 
-<!-- github ribbon --> 
-<a href="https://github.com/jeromeetienne"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://assets0.github.com/img/ce742187c818c67d98af16f96ed21c00160c234a?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_left_gray_6d6d6d.png&path=" alt="Fork me on GitHub"></a>
 <!-- google analytic -->
 <script type="text/javascript">	
 	var _gaq = _gaq || [];
@@ -149,6 +140,54 @@ Feel free to fork, modify and have fun with it :)</p>
 	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 </script>
+ 
+<!-- follow me on twitter --> 
+<a href="http://www.twitter.com/jerome_etienne"><img style="position: absolute; top: 10px; right: 10px; border: 0;" src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow jerome_etienne on Twitter"/></a> 
+
+<!-- twitter profile widget -->
+<style>
+#twitterProfileWidget {
+	position: fixed;
+	bottom	: 0px;
+	right	: 0px;
+}
+</style>
+<div id="twitterProfileWidget">
+	<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+	<script>
+return;
+	new TWTR.Widget({
+		version: 2,
+		type: 'profile',
+		rpp: 4,
+		interval: 6000,
+		width: 250,
+		height: 300,
+		theme: {
+			shell: {
+				background: '#00a0d1',
+				color: '#ffffff'
+			},
+			tweets: {
+				background: '#c0deed',
+				color: '#333333',
+				links: '#00a0d1'
+			}
+		},
+		features: {
+			scrollbar: false,
+			loop: false,
+			live: false,
+			hashtags: true,
+			timestamp: true,
+			avatars: false,
+			behavior: 'all'
+		}
+	}).render().setUser('jerome_etienne').start();
+	</script>
+</div>
+
+
 
 
 </body>

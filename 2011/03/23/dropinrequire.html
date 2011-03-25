@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Drop-In require - a require() for the browser in less than 20line</title>
+   <title>DropinRequire - Experimental require for browsers in 20 lines</title>
    <meta name="author" content="Jerome Etienne" />
 
    <!-- syntax highlighting CSS -->
@@ -13,13 +13,13 @@
 <body>
 
 <div class="site">
-  <div class="title">
-    <a href="/">Jerome Etienne</a>
-    <a class="extra" href="/">home</a>
-  </div>
+	<div class="title">
+		<a href="/">Jerome Etienne</a>
+		<a class="extra" href="http://jetienne.com">Homepage</a>
+	</div>
   
-  <div id="post">
-<h1>Drop-In require - a require() for the browser in less than 20line</h1>
+	<div id="post">
+<h1>DropinRequire - Experimental require for browsers in 20 lines</h1>
 
 <p class='meta'>23 March 2011 -</p>
 
@@ -32,8 +32,9 @@ in a browser. No server to run, No preprocessing of javascript files.
 It is very simple it needs only <a href="https://github.com/jeromeetienne/dropinrequire.js/blob/master/dropin_require.js#L1-20">20-lines</a>
 of js.</p>
 
-<p>If you are using <a href="http://nodejs.org">node.js</a> and are willing to share code with your browser without
-hassle, <a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> is for you.</p>
+<p>It is designed for rapid prototyping, not for <em>production</em> (see <a href="#performance">details</a>).
+If you are in a rush, are using <a href="http://nodejs.org">node.js</a> and are willing to share code
+with your browser without hassle, <a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> is for you.</p>
 
 <h2>How to use it</h2>
 
@@ -57,6 +58,22 @@ Suppose you got a module <code>foobar.js</code></p>
 &lt;/script&gt;
 </code></pre>
 
+<h2>Performance vs Compatibility</h2>
+
+<p><a name="performance"></a></p>
+
+<p><a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a> goals were to be short and compatible.
+The compatibility part is the painfull one.
+Nodejs <a href="http://nodejs.org/docs/v0.4.3/api/globals.html#require">require</a> is synchronous, so when you require
+you dont do anything else. To ensure compatibility, dropinrequire must be synchronous too.
+But It is ok for nodejs because reading files from local disks is fast, much faster than network transfert.
+The same doesnt apply in the browser.
+Because of compatibility, dropinrequire.js relies on synchronous xhr which have
+signficant performance issues. maybe one day i will incude a cache in LocalStorage.
+For now, i recommend <a href="https://github.com/weepy/brequire">brequire</a> for production.  It does
+require you to preprocess your js files on the server, but it is in the same
+spirit than <a href="http://jeromeetienne.github.com/dropinrequire.js">dropinrequire.js</a>, small and clean.</p>
+
 <h2>About</h2>
 
 <p>The code is available on <a href="https://github.com/jeromeetienne/dropinrequire.js">github</a> under
@@ -77,26 +94,15 @@ That's it. No fuss no muss.</p>
   </ul>
 </div>
   
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Jerome Etienne<br />
-        jerome.etienne@gmail.com
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/jeromeetienne/">github.com/jeromeetienne</a><br />
-        <a href="http://twitter.com/jerome_etienne/">twitter.com/jerome_etienne</a><br />
-      </p>
-    </div>
-  </div>
+	<div class="footer">
+		<div class="credits">
+			<p>
+				made by <a href='http://twitter.com/jerome_etienne'>@jerome_etienne</a>
+			</p>
+		</div>
+	</div>
 </div>
 
-<!-- follow me on twitter --> 
-<a href="http://www.twitter.com/jerome_etienne"><img style="position: absolute; top: 10px; right: 10px; border: 0;" src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow jerome_etienne on Twitter"/></a> 
-<!-- github ribbon --> 
-<a href="https://github.com/jeromeetienne"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://assets0.github.com/img/ce742187c818c67d98af16f96ed21c00160c234a?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_left_gray_6d6d6d.png&path=" alt="Fork me on GitHub"></a>
 <!-- google analytic -->
 <script type="text/javascript">	
 	var _gaq = _gaq || [];
@@ -109,6 +115,54 @@ That's it. No fuss no muss.</p>
 	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 </script>
+ 
+<!-- follow me on twitter --> 
+<a href="http://www.twitter.com/jerome_etienne"><img style="position: absolute; top: 10px; right: 10px; border: 0;" src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow jerome_etienne on Twitter"/></a> 
+
+<!-- twitter profile widget -->
+<style>
+#twitterProfileWidget {
+	position: fixed;
+	bottom	: 0px;
+	right	: 0px;
+}
+</style>
+<div id="twitterProfileWidget">
+	<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+	<script>
+return;
+	new TWTR.Widget({
+		version: 2,
+		type: 'profile',
+		rpp: 4,
+		interval: 6000,
+		width: 250,
+		height: 300,
+		theme: {
+			shell: {
+				background: '#00a0d1',
+				color: '#ffffff'
+			},
+			tweets: {
+				background: '#c0deed',
+				color: '#333333',
+				links: '#00a0d1'
+			}
+		},
+		features: {
+			scrollbar: false,
+			loop: false,
+			live: false,
+			hashtags: true,
+			timestamp: true,
+			avatars: false,
+			behavior: 'all'
+		}
+	}).render().setUser('jerome_etienne').start();
+	</script>
+</div>
+
+
 
 
 </body>

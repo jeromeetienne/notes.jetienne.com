@@ -123,12 +123,12 @@ ul.posts {
     overflow: hidden;
   }
 
-    .site .footer .contact {
-      float: left;
-      margin-right: 3em;
+    .site .footer .credits {
+      float: right;
+      margin-right: 1em;
     }
 
-      .site .footer .contact a {
+      .site .footer .credits a {
         color: #8085C1;
       }
 
