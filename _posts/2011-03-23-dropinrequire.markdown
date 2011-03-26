@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: DropinRequire - Experimental require for browsers in 20 lines
 ---
 
