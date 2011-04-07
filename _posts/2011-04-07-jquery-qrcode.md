@@ -39,6 +39,6 @@ This is it. see it <a href='http://jeromeetienne.github.com/jquery-qrcode/exampl
 ## Conclusion
 <a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a> is available on github
 <a href='https://github.com/jeromeetienne/jquery-qrcode'>here</a>
-under <a href='https://github.com/jeromeetienne/jquery-qrcode.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+under <a href='https://github.com/jeromeetienne/jquery-qrcode/blob/master/MIT-LICENSE.txt'>MIT license</a>.
 If you hit bugs, fill issues on github.
 Feel free to fork, modify and have fun with it :)
