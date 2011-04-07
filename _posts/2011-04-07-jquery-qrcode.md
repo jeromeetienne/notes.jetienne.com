@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: jquery.qrcode - jquery plugin for a pure browser qrcode generation
+title: jquery.qrcode - jquery plugin for pure browser qrcode generation
 ---
 
 # {{ page.title }}
