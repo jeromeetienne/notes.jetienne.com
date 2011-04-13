@@ -15,7 +15,7 @@ Pacmaze v0 is a [multi-player first person shooter](http://en.wikipedia.org/wiki
 Everybody joins in the same maze, and they shoot at each other. Lets the best win... except
 that nobody dies because i forgot to code death :)
 
-To my knowledge, Pacemaze v0 is the first
+To my knowledge, Pacmaze v0 is the first
 [multi-player first person shooter](http://en.wikipedia.org/wiki/First-person_shooter#Multiplayer)
 using html5 power with [WebGL](http://en.wikipedia.org/wiki/WebGL)
 and [WebSockets](http://en.wikipedia.org/wiki/WebSockets).

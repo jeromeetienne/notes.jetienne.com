@@ -29,7 +29,11 @@ is part of the challenge. We will see how it goes along the road.
 
 ## Pacmaze Experiment Origin
 
-Pacmaze V0 started on 14 march 2011 with a [36h code rush](/Pacmaze%20Experiment/2011/03/21/pacmaze-v0-origin.html).
+[Pacmaze v0](http://pacmaze0.jetienne.com) is the first
+[multi-player first person shooter](http://en.wikipedia.org/wiki/First-person_shooter#Multiplayer)
+using html5 power with [WebGL](http://en.wikipedia.org/wiki/WebGL)
+and [WebSockets](http://en.wikipedia.org/wiki/WebSockets). 
+It started on 14 march 2011 with a [36h code rush](/Pacmaze%20Experiment/2011/03/21/pacmaze-v0-origin.html).
 It was a [proof-of-concept](http://en.wikipedia.org/wiki/Proof_of_concept).
 Its purpose was to know if the needed technology was available on today browsers.
 *Good news! it is* :)
