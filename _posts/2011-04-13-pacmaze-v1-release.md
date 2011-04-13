@@ -22,14 +22,15 @@ What is it ?
 It is an experiment i wish to try. The rule is simple.
 During 4 months, i am commited to code in a *publish early, publish often* mode.
 Twice a month, i will publish a new game, or a significant improvement of a
-previous one, on the second and the fourth wednesday.
+previous one, on the second and the fourth wednesday.  Pacmaze V1 being the first
+of the serie.
 
 This is the current plan... I know the schedule is tight, but this
 is part of the challenge. We will see how it goes along the road.
 
 ## Pacmaze Experiment Origin
 
-[Pacmaze v0](http://pacmaze0.jetienne.com) is the first
+[Pacmaze v0](http://pacmaze0.jetienne.com) was the first
 [multi-player first person shooter](http://en.wikipedia.org/wiki/First-person_shooter#Multiplayer)
 using html5 power with [WebGL](http://en.wikipedia.org/wiki/WebGL)
 and [WebSockets](http://en.wikipedia.org/wiki/WebSockets). 
