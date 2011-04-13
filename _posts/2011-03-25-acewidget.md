@@ -4,10 +4,6 @@ published: false
 title: AceWidget - it makes ace/bespin trivial to embed in your pages
 ---
 
-# {{ page.title }}
-
-<p class='meta'>25 March 2011 -</p>
-
 # AceWidget
 
 AceWidget is a widget which make ace/bespin trivial to embed in your pages. 

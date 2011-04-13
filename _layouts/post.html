@@ -3,11 +3,18 @@ layout: default
 ---
 
 <div id="post">
+  <h1><a href='{{ post.url }}'>{{ page.title }}</a></h1>
+  <p class='meta'>
+    {{ page.date | date: '%Y-%m-%d' }}
+    {% unless page.categories == empty %}
+      (<strong>{{ page.categories | join: '</strong>, <strong>' }}</strong>)
+    {% endunless %}
+  </p>
 {{ content }}
 </div>
 
-
 <div id="related">
+	<hr/>
 	If you reached this point, maybe you want to share it:
 	<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	<br/>	
@@ -19,3 +26,5 @@ layout: default
 		{% endfor %}
 	</ul>
 </div>
+
+

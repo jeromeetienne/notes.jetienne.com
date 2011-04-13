@@ -3,10 +3,6 @@ layout: post
 title: MicroEvent.js - micro event emitter in 20 lines
 ---
 
-# {{ page.title }}
-
-<p class='meta'>22 March 2011 -</p>
-
 _MicroEvent.js_ is a event emitter library which provides the
 [observer pattern](http://en.wikipedia.org/wiki/Observer_pattern) to javascript objects.
 It works on node.js and browser. It is a single .js file containing

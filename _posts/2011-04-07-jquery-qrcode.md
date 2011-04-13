@@ -4,10 +4,6 @@ published: true
 title: jquery.qrcode - jquery plugin for pure browser qrcode generation
 ---
 
-# {{ page.title }}
-
-<p class='meta'>7 April 2011 -</p>
-
 <a href='http://jeromeetienne.github.com/jquery-qrcode'>jquery.qrcode.js</a>
 is *jquery plugin for a pure browser qrcode generation*.
 It allow you to easily add qrcode to your webpages.

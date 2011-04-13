@@ -3,10 +3,6 @@ layout: post
 title: Initial Post
 ---
 
-# {{ page.title }}
-
-<p class='meta'>23 March 2011 -</p>
-
 Trying to blog again. Here is my first post.
 
 Up to now i didnt considere my blogging seriously. My blog posts were kinda PostIts to me, some random texts

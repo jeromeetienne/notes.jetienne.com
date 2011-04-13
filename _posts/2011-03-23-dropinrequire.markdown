@@ -4,12 +4,6 @@ published: false
 title: DropinRequire - Experimental require for browsers in 20 lines
 ---
 
-# {{ page.title }}
-
-<p class='meta'>23 March 2011 -</p>
-
-# Drop-In require
-
 [dropinrequire.js](http://jeromeetienne.github.com/dropinrequire.js)
 is a drop-in replacement for commonjs [module](http://www.commonjs.org/specs/modules/1.0/)
 in a browser. No server to run, No preprocessing of javascript files.
