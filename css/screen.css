@@ -197,7 +197,9 @@ ul.posts {
   }
 
 #related {
-  margin-top: 2em;
+	border-top: 4px solid #eee;
+	padding-top: 1em;
+	margin-top: 1em;
 }
 
   #related h2 {
