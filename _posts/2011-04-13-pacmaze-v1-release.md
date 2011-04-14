@@ -2,8 +2,6 @@
 layout: post
 published: true
 title: Pacmaze V1 - a Pacman in WebGL
-categories: 
-- Pacmaze Experiment
 ---
 
 ## tl;dr;
@@ -20,10 +18,10 @@ Pacmaze v1 is the first game of *the pacmaze experiment*.
 What is it ?
 **The pacmaze experiment** is the fancy name for *my trip discovering gamedev field*.
 It is an experiment i wish to try. The rule is simple.
-During 4 months, i am commited to code in a *publish early, publish often* mode.
+During 4 months, i am commited to work in a *publish early, publish often* mode.
 Twice a month, i will publish a new game, or a significant improvement of a
-previous one, on the second and the fourth wednesday.  Pacmaze V1 being the first
-of the serie.
+previous one, on the second and the fourth wednesday of each month.
+Pacmaze V1 being the first of the serie.
 
 This is the current plan... I know the schedule is tight, but this
 is part of the challenge. We will see how it goes along the road.
@@ -49,5 +47,7 @@ So i spent some time to refactor the code from 36h hack to something more stable
 
 I did many visual enhancements, improved the gameplay quite a bit... and then
 you got [Pacmaze v1](http://pacmaze.com). have fun :)
+
+
 
 
