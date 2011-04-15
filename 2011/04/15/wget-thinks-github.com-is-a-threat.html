@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Initial Post on Jerome Etienne blog</title>
+	<title>wget thinks github.com is a threat on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -42,18 +42,48 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>Initial Post</a></h1>
+  <h1><a href=''>wget thinks github.com is a threat</a></h1>
   <p class='meta'>
-    2011-03-10
+    2011-04-15
     
   </p>
-  <p>Trying to blog again. Here is my first post.</p>
+  <p>This is just a little post on a oddity. As a coder, i use <a href="http://github.com">github</a>
+and <a href="http://www.gnu.org/software/wget/">wget</a> everyday or close. When i do, i
+see this message.</p>
 
-<p>Up to now i didnt considere my blogging seriously. My blog posts were kinda PostIts to me, some random texts
-that i have written not to forget. So the targeted reader was me, and if it helps people outthere, all for
-the best, but not the primary purpose.</p>
+<pre><code>$ wget https://github.com/jeromeetienne/nmod/raw/master/nmod
+...
+ERROR: certificate common name `*.github.com' doesn't match requested
+host name `github.com'.
+To connect to github.com insecurely, use `--no-check-certificate'.
+</code></pre>
 
-<p>This blog is using <a href="http://jekyllrb.com/">jekyll</a> and will be hosted at <a href="http://notes.jetienne.com">notes.jetienne.com</a></p>
+<p>This message puzzles me quite a bit...
+<a href="http://www.gnu.org/software/wget/">wget</a>
+thinks
+<strong><em><a href="http://github.com">github</a>
+is a threat</em></strong> ... and requires an explicit action
+from you (adding <code>--no-check-certificate</code>) to be sure you are willing to take this <strong><em>risk</em></strong> .
+The risk of downloading files from github... ok lets admit it, <strong><em>this is ridiculous</em></strong>.
+<a href="http://www.gnu.org/software/wget/">wget</a> distrusting <a href="http://github.com">github</a> is
+like ... <a href="http://en.wikipedia.org/wiki/Ls">ls</a> distrusting <a href="http://en.wikipedia.org/wiki/Cd_(command)">cd</a> :)</p>
+
+<p>According to github, <a href="http://support.github.com/discussions/site/2507-error-certificate-common-name-githubcom-doesnt-match-requested-host-name-githubcom">this is actually a wget bug which has been reported and fixed but not release</a>
+, and point to a <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938">bug from 2007</a>!!!!
+Dunno if this is true, or who is at the best place to fix the issue... and the purpose of this post
+is not to do finger pointing.</p>
+
+<p>Lets note that everybody is from open source world here.
+wget is from gnu, not only under gpl, but
+<a href="http://en.wikipedia.org/wiki/Wget#Authors_and_copyright">even got his copyright assigned to fsf</a>.
+What to say about github and opensource ? well they got <a href="https://github.com/blog/685-one-million-repositories">millions of
+repositories</a>
+and most of them are open source software.</p>
+
+<p>This post is not meant to be a rant. More to put the light on an oddity. something that i see
+as a <code>symptom of communication issue</code> in the opensource community.</p>
+
+<p>Let do better! :)</p>
 
 </div>
 
@@ -65,11 +95,11 @@ the best, but not the primary purpose.</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/wget-thinks-github.com-is-a-threat.html">wget thinks github.com is a threat</a></li>
-		
 			<li><span>13 Apr 2011</span> &raquo; <a href="/2011/04/13/pacmaze-v1-release.html">Pacmaze V1 - a Pacman in WebGL</a></li>
 		
 			<li><span>07 Apr 2011</span> &raquo; <a href="/2011/04/07/jquery-qrcode.html">jquery.qrcode - jquery plugin for pure browser qrcode generation</a></li>
+		
+			<li><span>22 Mar 2011</span> &raquo; <a href="/2011/03/22/microeventjs.html">MicroEvent.js - micro event emitter in 20 lines</a></li>
 		
 	</ul>
 </div>
