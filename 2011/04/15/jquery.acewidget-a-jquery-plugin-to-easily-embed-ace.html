@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Jerome Etienne Notes on Jerome Etienne blog</title>
+	<title>jquery.acewidget - a jQuery plugin to easily embed ace on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -41,26 +41,103 @@
 		<a href="http://pacmaze.com">Check it out!</a>
 	</div>
   
-	<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
+	<div id="post">
+  <h1><a href=''>jquery.acewidget - a jQuery plugin to easily embed ace</a></h1>
+  <p class='meta'>
+    2011-04-15
     
-      <li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/wget-thinks-github.com-is-a-threat.html">wget thinks github.com is a threat</a></li>
-    
-      <li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/jquery.acewidget-a-jquery-plugin-to-easily-embed-ace.html">jquery.acewidget - a jQuery plugin to easily embed ace</a></li>
-    
-      <li><span>13 Apr 2011</span> &raquo; <a href="/2011/04/13/pacmaze-v1-release.html">Pacmaze V1 - a Pacman in WebGL</a></li>
-    
-      <li><span>07 Apr 2011</span> &raquo; <a href="/2011/04/07/jquery-qrcode.html">jquery.qrcode - jquery plugin for pure browser qrcode generation</a></li>
-    
-      <li><span>22 Mar 2011</span> &raquo; <a href="/2011/03/22/microeventjs.html">MicroEvent.js - micro event emitter in 20 lines</a></li>
-    
-      <li><span>21 Mar 2011</span> &raquo; <a href="/2011/03/21/pacmaze-v0-origin.html">Pacmaze V0 - First multi-player first person shooter on html5</a></li>
-    
-      <li><span>10 Mar 2011</span> &raquo; <a href="/2011/03/10/initial-post.html">Initial Post</a></li>
-    
-  </ul>
-</div>  
+  </p>
+  <h1>AceWidget jQuery Plugin</h1>
+
+<p><a href="https://github.com/jeromeetienne/acewidget/tree/master/contrib/jquery.acewidget">jquery.acewidget.js</a> is a
+jQuery plugin for <a href="https://github.com/jeromeetienne/acewidget">acewidget</a>.
+AceWidget is a widget which make ace/besping trivial to embed in your pages. The Vision is to be
+super simple to embed and have no server to setup. It provides the whole official embeded api. The
+code is available on github under MIT license. That's it. No fuss no muss.</p>
+
+<p>Show dont tell, a <a href="http://jeromeetienne.github.com/acewidget/demo.html">demo of acewidget</a> and a
+<a href="http://jeromeetienne.github.com/acewidget/contrib/jquery.acewidget/test.html">example of jquery.acewidget</a></p>
+
+<h2>How to use it</h2>
+
+<p>First you include the plugin itself in a usual script</p>
+
+<pre><code>&lt;script type="text/javascript" src='jquery.acewidget.js'&gt;&lt;/script&gt; 
+</code></pre>
+
+<p>Then create a DOM element which gonna contains ace widget, say a div</p>
+
+<pre><code>&lt;div id="editor"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Then you create the ace widget in this container by</p>
+
+<pre><code>var acewidget = jQuery('#editor').acewidget();
+</code></pre>
+
+<p>You wait until it is loaded in your DOM</p>
+
+<pre><code>acewidget.bind('load', function(){
+    /* you start using it here */
+})
+</code></pre>
+
+<p>After that you use it with the normal ace API</p>
+
+<h2>API</h2>
+
+<h3>to set a new text</h3>
+
+<pre><code>acewidget.setValue("foobar", function(){
+alert("setValue "+result.status)
+})
+</code></pre>
+
+<p>The callback is optional' and notified when the action is completed.
+It is <a href="http://labs.omniti.com/labs/jsend/wiki">jsend compatible</a>.</p>
+
+<h3>to get the current text</h3>
+
+<pre><code>acewidget.getValue(function(result){
+    alert("getValue "+result.status+" text:"+result.data.data)
+})
+</code></pre>
+
+<h3>to set the tab size</h3>
+
+<pre><code>acewidget.setTabSize(8, function(result){
+    alert("setTabSize "+result.status)
+})
+</code></pre>
+
+<h3>to be notified when the acewidget is loaded</h3>
+
+<pre><code>acewidget.bind('load', function(){
+    alert('acewidget is loaded')
+})
+</code></pre>
+
+</div>
+
+<div id="related">
+	If you reached this point, maybe you want to share it:
+	<a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<br/>	
+	<br/>	
+	<h2>Related Posts</h2>
+	<ul class="posts">
+		
+			<li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/wget-thinks-github.com-is-a-threat.html">wget thinks github.com is a threat</a></li>
+		
+			<li><span>13 Apr 2011</span> &raquo; <a href="/2011/04/13/pacmaze-v1-release.html">Pacmaze V1 - a Pacman in WebGL</a></li>
+		
+			<li><span>07 Apr 2011</span> &raquo; <a href="/2011/04/07/jquery-qrcode.html">jquery.qrcode - jquery plugin for pure browser qrcode generation</a></li>
+		
+	</ul>
+</div>
+
+
+
   
 	<div class="footer">
 		<div class="credits">
