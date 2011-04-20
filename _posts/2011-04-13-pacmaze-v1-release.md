@@ -13,7 +13,9 @@ You can find it as [standalone webapp](http://pacmaze.com) or in
 [chrome web store](https://chrome.google.com/webstore/detail/ggeliggglgbhachnoljoieibaneidchi).
 Pacmaze v1 is the first game of *the pacmaze experiment*. Show, dont tell, here is a screencast
 
+<center>
 <iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/9_ZtsK4rU4g" frameborder="0" allowfullscreen></iframe>
+</center>
 
 ## Pacmaze Experiment
 
