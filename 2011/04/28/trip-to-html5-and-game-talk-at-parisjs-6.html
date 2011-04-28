@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>MicroEvent.js - micro event emitter in 20 lines on Jerome Etienne blog</title>
+	<title>a trip to html5 and game - talk at parisjs on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -42,92 +42,20 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>MicroEvent.js - micro event emitter in 20 lines</a></h1>
+  <h1><a href=''>a trip to html5 and game - talk at parisjs</a></h1>
   <p class='meta'>
-    2011-03-22
+    2011-04-28
     
   </p>
-  <p><em>MicroEvent.js</em> is a event emitter library which provides the
-<a href="http://en.wikipedia.org/wiki/Observer_pattern">observer pattern</a> to javascript objects.
-It works on node.js and browser. It is a single .js file containing
-a <a href="https://github.com/jeromeetienne/microevent.js/blob/master/microevent.js#L12-31">20 lines class</a>
-for a total of 321-bytes after minification+gzip.</p>
+  <p>Yesterday i was at <a href="http://parisjs.org">parisjs</a> talking about html5 and game.
+I presented games from the <a href="/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman.html">Pacmaze</a>
+<a href="/2011/04/13/pacmaze-v1-release.html">Experiment</a> and talked about html5 technology in it.
+Here are the slides i used.</p>
 
-<h1>How to Use It</h1>
+<center>
+<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_63gks3skcf" frameborder="0" width="410" height="342"></iframe>
+</center>
 
-<p>You need a single file <a href="https://github.com/jeromeetienne/microevent.js/raw/master/microevent.js">microevent.js</a>.
-Include it in a webpage via the usual script tag.</p>
-
-<pre><code>&lt;script src="microevent.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>To include it in a nodejs code isnt much harder</p>
-
-<pre><code>var MicroEvent = require('./microevent.js')
-</code></pre>
-
-<p>Now suppose you got a class <code>Foobar</code>, and you wish it to support the observer partern. do</p>
-
-<pre><code>MicroEvent.mixin(Foobar)
-</code></pre>
-
-<p>That's it. The repository contains an <a href="https://github.com/jeromeetienne/microevent.js/blob/master/examples/example.html">example in browser</a>
-and an <a href="https://github.com/jeromeetienne/microevent.js/blob/master/examples/example.js">example in nodejs</a>.
-Both use the same code in different contexts. Let me walk you thru it.</p>
-
-<h1>Example</h1>
-
-<p>First we define the class which going to use MicroEvent.js. This is a ticker, it is
-triggering 'tick' events every second, and add the current date as parameter</p>
-
-<pre><code>var Ticker = function(){
-    var self = this;
-    setInterval(function(){
-        self.trigger('tick', new Date());
-    }, 1000);
-};
-</code></pre>
-
-<p>We mixin <em>MicroEvent</em> into <em>Ticker</em> and we are all set.</p>
-
-<pre><code>MicroEvent.mixin(Ticker);
-</code></pre>
-
-<p>Now lets actually use the <em>Ticker</em> Class. First, create the object.</p>
-
-<pre><code>var ticker = new Ticker();
-</code></pre>
-
-<p>and bind our <em>tick</em> event with its data parameter</p>
-
-<pre><code>ticker.bind('tick', function(date) {
-    console.log('notified date', date);
-});
-</code></pre>
-
-<p>And you will see this output:</p>
-
-<pre><code>notified date Tue, 22 Mar 2011 14:43:41 GMT
-notified date Tue, 22 Mar 2011 14:43:42 GMT
-...
-</code></pre>
-
-<h1>Motivation</h1>
-
-<p>I needed a event emitter in js... something generic which works on browser and server, cross browser. The solutions i
-found were too complex for my taste.</p>
-
-<p>When i have seen John Resig <a href="http://ejohn.org/blog/javascript-micro-templating/">micro templating</a>
-or <a href='http://ejohn.org/blog/simple-javascript-inheritance/'>simple inheritance</a>, i loved it. It is
-simple, short, self contained, easy to understand... so <strong>elegant</strong>. i thought "this is no more a dependancy
-because i could maintain it if needed". Now i try to apply those principles to my own work.</p>
-
-<h1>Conclusion</h1>
-
-<p>MicroEvent.js is available on github <a href='https://github.com/jeromeetienne/microevent.js'>here</a>
-under <a href='https://github.com/jeromeetienne/microevent.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
-If you hit bugs, fill issues on github.
-Feel free to fork, modify and have fun with it :)</p>
 
 </div>
 
@@ -139,11 +67,11 @@ Feel free to fork, modify and have fun with it :)</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>28 Apr 2011</span> &raquo; <a href="/2011/04/28/trip-to-html5-and-game-talk-at-parisjs-6.html">a trip to html5 and game - talk at parisjs</a></li>
-		
 			<li><span>20 Apr 2011</span> &raquo; <a href="/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman.html">Pacmaze v2 - Event More WebGL in Pacman</a></li>
 		
 			<li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/wget-thinks-github.com-is-a-threat.html">wget thinks github.com is a threat</a></li>
+		
+			<li><span>15 Apr 2011</span> &raquo; <a href="/2011/04/15/jquery.acewidget-a-jquery-plugin-to-easily-embed-ace.html">jquery.acewidget - a jQuery plugin to easily embed ace</a></li>
 		
 	</ul>
 </div>
