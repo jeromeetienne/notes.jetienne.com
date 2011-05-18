@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Pacmaze V0 - First multi-player first person shooter on html5 on Jerome Etienne blog</title>
+	<title>cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame() on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -42,26 +42,80 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>Pacmaze V0 - First multi-player first person shooter on html5</a></h1>
+  <h1><a href=''>cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()</a></h1>
   <p class='meta'>
-    2011-03-21
+    2011-05-18
     
   </p>
-  <p>Last week, i started to do gamedev.
-During a code rush, i did pacmaze v0 in <em>36h!!!</em> Then i slept a lot and published it as
-<a href="https://chrome.google.com/webstore/detail/ggeliggglgbhachnoljoieibaneidchi">chrome application</a>
-(This way, i didnt have to care about cross-browser compatbility out of time and lazyness i admit :)</p>
+  <p><a href="http://paulirish.com/">Paul Irish</a> recently
+wrote <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">requestAnimationFrame for smart animating</a>.
+It is a polyfill so people can start use requestAnimationFrame() today and still be future proof.</p>
 
-<p>Pacmaze v0 is a <a href="http://en.wikipedia.org/wiki/First-person_shooter">multi-player first person shooter</a>.
-Everybody joins in the same maze, and they shoot at each other. Lets the best win... except
-that nobody dies because i forgot to code death :)</p>
+<p>This post is about its counterpart,
+<a href="http://webstuff.nfshost.com/anim-timing/Overview.html#cancelRequestAnimationFrame">cancelRequestAnimFrame()</a>.
+It cancels a <a href="http://webstuff.nfshost.com/anim-timing/Overview.html#requestAnimationFrame">requestAnimationFrame()</a>,
+like <a href="https://developer.mozilla.org/en/DOM/window.clearTimeout">clearTimeout</a>
+cancels a <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a>.</p>
 
-<p>To my knowledge, Pacmaze v0 is the first
-<a href="http://en.wikipedia.org/wiki/First-person_shooter#Multiplayer">multi-player first person shooter</a>
-using html5 power with <a href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>
-and <a href="http://en.wikipedia.org/wiki/WebSockets">WebSockets</a>.
-You can find the game as standalone <a href="http://pacmaze0.jetienne.com">here</a>. have fun. I certainly
-had fun writing it :)</p>
+<h1>Step 1: how to get the code</h1>
+
+<p>First include the <code>cancelRequestAnimFrame()</code> code in your page.</p>
+
+<pre><code>window.cancelRequestAnimFrame = ( function() {
+    return window.cancelAnimationFrame          ||
+        window.webkitCancelRequestAnimationFrame    ||
+        window.mozCancelRequestAnimationFrame       ||
+        window.oCancelRequestAnimationFrame     ||
+        window.msCancelRequestAnimationFrame        ||
+        clearTimeout
+} )();
+</code></pre>
+
+<p>Add <code>requestAnimFrame()</code> too. It is a slightly modified version of
+<a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">paul's</a>
+to return setTimeout() handle.</p>
+
+<pre><code>window.requestAnimFrame = (function(){
+    return  window.requestAnimationFrame       || 
+        window.webkitRequestAnimationFrame || 
+        window.mozRequestAnimationFrame    || 
+        window.oRequestAnimationFrame      || 
+        window.msRequestAnimationFrame     || 
+        function(/* function */ callback, /* DOMElement */ element){
+            return window.setTimeout(callback, 1000 / 60);
+        };
+})();
+</code></pre>
+
+<h1>Step 2: how to use it</h1>
+
+<p>Here is a possible way to use it.
+<strong><em>Show, dont tell</em></strong>, here is a <a href="http://jsfiddle.net/ghjKC/3/">live demo</a> on jsfiddle</p>
+
+<pre><code>// to store the request
+var request;
+
+// start and run the animloop
+(function animloop(){
+  render();
+  request = requestAnimFrame(animloop, element);
+})();
+
+// cancelRequestAnimFrame to stop the loop in 1 second
+setTimeout(function(){
+    cancelRequestAnimFrame(request);                
+}, 1*1000)
+</code></pre>
+
+<h1>About requestAnimationFrame</h1>
+
+<p>In the past months, much has been done for web graphics. Among them,
+<a href="http://webstuff.nfshost.com/anim-timing/Overview.html">requestAnimationFrame()</a>
+is used to make smoother animation while not wasting useless
+rescources when not visible.
+The <a href="http://webstuff.nfshost.com/anim-timing/Overview.html">spec</a> is making good
+progress, and <a href="http://dev.chromium.org/developers/design-documents/requestanimationframe-implementation">several</a>
+<a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame">implementations</a> are already deployed.</p>
 
 </div>
 
@@ -73,11 +127,11 @@ had fun writing it :)</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>18 May 2011</span> &raquo; <a href="/2011/05/18/cancelRequestAnimFrame-for-paul-irish-requestAnimFrame.html">cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()</a></li>
-		
 			<li><span>28 Apr 2011</span> &raquo; <a href="/2011/04/28/trip-to-html5-and-game-talk-at-parisjs-6.html">a trip to html5 and game - talk at parisjs</a></li>
 		
 			<li><span>28 Apr 2011</span> &raquo; <a href="/2011/04/28/buddymaze-fps-in-webgl.html">Buddymaze - First Personn Shooter in WebGL</a></li>
+		
+			<li><span>20 Apr 2011</span> &raquo; <a href="/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman.html">Pacmaze v2 - Event More WebGL in Pacman</a></li>
 		
 	</ul>
 </div>
