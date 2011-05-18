@@ -1,6 +1,6 @@
 ---
 layout: post
-published: true
+published: false
 title: How to get Webgl to Play Pacmaze
 ---
 

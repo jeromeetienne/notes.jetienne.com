@@ -1,0 +1,76 @@
+<html>
+	<body>
+		<h3>requestAnimationFrame and cancelRequestAnimationFrame demo</h3>
+		<p>Look at the javascript console to see what is happening</p>
+		<script>
+			// shim layer with setTimeout fallback
+			window.requestAnimFrame = (function(){
+				return  window.requestAnimationFrame       || 
+					window.webkitRequestAnimationFrame || 
+					window.mozRequestAnimationFrame    || 
+					window.oRequestAnimationFrame      || 
+					window.msRequestAnimationFrame     || 
+					function(/* function */ callback, /* DOMElement */ element){
+						return window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+			window.cancelRequestAnimFrame = ( function() {
+				return window.cancelAnimationFrame			||
+					window.webkitCancelRequestAnimationFrame	||
+					window.mozCancelRequestAnimationFrame 		||
+					window.oCancelRequestAnimationFrame		||
+					window.msCancelRequestAnimationFrame		||
+					clearTimeout
+			} )();
+		</script>
+		<script>
+			var request;
+			
+			(function animloop(){
+				console.log("render() should be done here and now");
+				request = requestAnimFrame(animloop, document.getElementsByTagName('body'));
+			})();
+			
+			// cancelRequestAnimFrame to stop the loop in 1sec
+			console.log("will do cancelRequestAnimFrame in 1sec...")
+			setTimeout(function(){
+				console.log("1sec expired doing cancelRequestAnimFrame() now")
+				cancelRequestAnimFrame(request);				
+			}, 1*1000)
+		</script>
+	</body>
+</html>
+
+// shim layer with setTimeout fallback
+window.requestAnimFrame = (function(){
+	return  window.requestAnimationFrame       || 
+		window.webkitRequestAnimationFrame || 
+		window.mozRequestAnimationFrame    || 
+		window.oRequestAnimationFrame      || 
+		window.msRequestAnimationFrame     || 
+		function(/* function */ callback, /* DOMElement */ element){
+			return window.setTimeout(callback, 1000 / 60);
+		};
+})();
+window.cancelRequestAnimFrame = ( function() {
+	return window.cancelAnimationFrame			||
+		window.webkitCancelRequestAnimationFrame	||
+		window.mozCancelRequestAnimationFrame 		||
+		window.oCancelRequestAnimationFrame		||
+		window.msCancelRequestAnimationFrame		||
+		clearTimeout
+} )();
+
+var request;
+
+(function animloop(){
+	console.log("render() should be done here and now");
+	request = requestAnimFrame(animloop, document.getElementsByTagName('body'));
+})();
+
+// cancelRequestAnimFrame to stop the loop in 1sec
+console.log("will do cancelRequestAnimFrame in 1sec...")
+setTimeout(function(){
+	console.log("1sec expired doing cancelRequestAnimFrame() now")
+	cancelRequestAnimFrame(request);				
+}, 1*1000)
