@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Initial Post on Jerome Etienne blog</title>
+	<title>Javascript Class Inheritance in 3 lines on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -42,18 +42,81 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>Initial Post</a></h1>
+  <h1><a href=''>Javascript Class Inheritance in 3 lines</a></h1>
   <p class='meta'>
-    2011-03-10
+    2011-07-10
     
   </p>
-  <p>Trying to blog again. Here is my first post.</p>
+  <p>This post describes a standalone way to add class inheritance in your javascript code.
+We will do that ala japor.js, so no dependancy or external framework. A
+vaporjs inheritance is only 3 lines!</p>
 
-<p>Up to now i didnt considere my blogging seriously. My blog posts were kinda PostIts to me, some random texts
-that i have written not to forget. So the targeted reader was me, and if it helps people outthere, all for
-the best, but not the primary purpose.</p>
+<p>Lets get started, say you got a class <em>animal</em>. It gonna have a constructor and a
+method <em>talk</em>.</p>
 
-<p>This blog is using <a href="http://jekyllrb.com/">jekyll</a> and will be hosted at <a href="http://notes.jetienne.com">notes.jetienne.com</a></p>
+<pre><code>var Animal = function(opts){}
+Animal.prototype.talk   = function(){ return 'mumble';  }
+Animal.prototype.sleep  = function(){ return 'zzzzz';   }
+</code></pre>
+
+<h1>How to write the inheritance</h1>
+
+<p>Now let write a <em>Cat</em> class which inherits from <em>Animal</em>. It will override the animal
+method <em>talk</em>.</p>
+
+<pre><code>var Cat = function(opts){
+    // call the parent class constructor (one line)
+    Animal.call(this, opts)
+}
+
+// inherit from Animal methods (two lines)
+Cat.prototype = new Animal();
+Cat.prototype.constructor = Animal;
+
+// override talk method
+Cat.prototype.talk = function(){
+    return "maow"
+}
+</code></pre>
+
+<p>So a vaporjs inheritance is only 3 lines!</p>
+
+<h1>Lets test methods override</h1>
+
+<p>Now lets test the result of all this</p>
+
+<pre><code>var cat = new Cat()
+console.log("cat sleep as ", cat.sleep());
+console.log("cat talk as ", cat.talk());
+</code></pre>
+
+<p>This will display</p>
+
+<pre><code>cat sleep as zzzzz
+cat talk as maow
+</code></pre>
+
+<p>So <code>.talk()</code> is actually overridden, and .sleep() is properly passed to the parent class <em>Animal</em>.</p>
+
+<h1>Lets test instanceOf semantic</h1>
+
+<p>Last but not least, the <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/instanceof">instanceOf</a>
+operator which is so important for javascript</p>
+
+<pre><code>console.log("Cat instanceof Cat", cat instanceof Cat);
+console.log("Cat instanceof Animal", cat instanceof Animal);
+</code></pre>
+
+<p>will display</p>
+
+<pre><code>Cat instanceof Cat true
+Cat instanceof Animal true
+</code></pre>
+
+<p>So <code>cat</code> object is an instance of the class <em>Cat</em> and of the class <em>Animal</em> which is the good
+semantic for <em>instanceOf</em>.</p>
+
+<p>That's all folks. have fun.</p>
 
 </div>
 
@@ -65,11 +128,11 @@ the best, but not the primary purpose.</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/javascript-class-inheritance.html">Javascript Class Inheritance in 3 lines</a></li>
-		
 			<li><span>26 May 2011</span> &raquo; <a href="/2011/05/26/Parisjs-7-slides.html">Parisjs 7 slides</a></li>
 		
 			<li><span>25 May 2011</span> &raquo; <a href="/2011/05/25/Webgl-london-meeting.html">Webgl London Meeting</a></li>
+		
+			<li><span>18 May 2011</span> &raquo; <a href="/2011/05/18/cancelRequestAnimFrame-for-paul-irish-requestAnimFrame.html">cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()</a></li>
 		
 	</ul>
 </div>
