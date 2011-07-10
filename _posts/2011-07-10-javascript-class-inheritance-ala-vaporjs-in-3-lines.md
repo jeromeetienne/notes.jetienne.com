@@ -1,11 +1,11 @@
 ---
 layout: post
 published: true
-title: Javascript Class Inheritance in 3 lines
+title: Javascript Class Inheritance ala vapor.js in 3 lines
 ---
 This post describes a standalone way to add class inheritance in your javascript code.
-We will do that ala japor.js, so no dependancy or external framework. A
-vaporjs inheritance is only 3 lines!
+We will do that ala [vapor.js](https://github.com/madrobby/vapor.js), so no
+dependancy or external framework. A vaporjs inheritance is only 3 lines!
 
 Lets get started, say you got a class *animal*. It gonna have a constructor and a
 method *talk*.
