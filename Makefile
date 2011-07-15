@@ -6,7 +6,7 @@ PROJECT_NAME=notes.jetienne.com
 all:
 
 server:
-	jekyll --server 8080 --auto
+	jekyll --server 3000 --auto
 
 build:
 	jekyll
