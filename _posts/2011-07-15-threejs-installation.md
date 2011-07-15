@@ -48,7 +48,7 @@ them. They are the meat, if you like something, just do view-source:
     [here](http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights.html),
     [here](http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights_smooth.html) and
     [here](http://mrdoob.github.com/three.js/examples/webgl_lights_pointlights.html)
-  * Some are focused on [collitions]. See
+  * Some are focused on [collitions](https://github.com/mrdoob/three.js/tree/master/src/extras/physics). See
     [here](http://mrdoob.github.com/three.js/examples/webgl_collisions_trigger.html),
     [here](http://mrdoob.github.com/three.js/examples/webgl_collisions_reaction.html) and
     [here](http://mrdoob.github.com/three.js/examples//webgl_collisions_mesh.html).
