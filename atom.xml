@@ -4,7 +4,7 @@
   <title>Codeography</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
-  <updated>2011-07-15T20:34:54+02:00</updated>
+  <updated>2011-07-15T20:55:32+02:00</updated>
   <id>http://codeography.com/</id>
   <author>
     <name>Christopher Sexton</name>
@@ -65,7 +65,7 @@ type of light sources. See
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights.html&quot;&gt;here&lt;/a&gt;,
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights_smooth.html&quot;&gt;here&lt;/a&gt; and
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_lights_pointlights.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Some are focused on [collitions]. See
+&lt;li&gt;Some are focused on &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/extras/physics&quot;&gt;collitions&lt;/a&gt;. See
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_collisions_trigger.html&quot;&gt;here&lt;/a&gt;,
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_collisions_reaction.html&quot;&gt;here&lt;/a&gt; and
 &lt;a href=&quot;http://mrdoob.github.com/three.js/examples//webgl_collisions_mesh.html&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
