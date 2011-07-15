@@ -7,48 +7,44 @@
 /* Global Reset */
 
 * {
-  margin: 0;
-  padding: 0;
+	margin	: 0;
+	padding	: 0;
 }
 
 html, body {
-  height: 100%;
+	height	: 100%;
 }
 
 body {
-  background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
-  text-align: center;
+	background-color: white;
+	font		: 13.34px helvetica, arial, clean, sans-serif;
+	text-align	: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-}
-
-h1 {
-  margin-bottom: 1em;
+	margin-top	: 1.2em;
+	margin-bottom	: 0.8em;
 }
 
 p {
-  margin: 1em 0;
+	margin		: 1em 0;
 }
 
 a {
-  color: #00a;
+	color		: #00a;
 }
 
 a:hover {
-  color: black;
+	color		: black;
 }
 
 a:visited {
-  color: #a0a;
+	color		: #a0a;
 }
 
 table {
-  font-size: inherit;
-  font: 100%;
+	font-size	: inherit;
+	font		: 100%;
 }
 
 /*****************************************************************************/
@@ -58,8 +54,8 @@ table {
 /*****************************************************************************/
 
 ul.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
+	list-style-type	: none;
+	margin-bottom	: 2em;
 }
 
   ul.posts li {
@@ -79,11 +75,11 @@ ul.posts {
 /*****************************************************************************/
 
 .site {
-  font-size: 110%;
-  text-align: justify;
-  width: 40em;
-  margin: 3em auto 2em auto;
-  line-height: 1.5em;
+	font-size: 110%;
+	text-align: justify;
+	width: 50em;
+	margin: 3em auto 2em auto;
+	line-height: 1.5em;
 }
 
 .title {
