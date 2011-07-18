@@ -4,12 +4,109 @@
   <title>Codeography</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
-  <updated>2011-07-15T20:55:32+02:00</updated>
+  <updated>2011-07-18T12:06:58+02:00</updated>
   <id>http://codeography.com/</id>
   <author>
     <name>Christopher Sexton</name>
     <email></email>
   </author>
+  
+  <entry>
+    <title>Flow.js - async flow control micro library for node and browser</title>
+    <link href="http://notes.jetienne.com"/>
+    <updated>2011-07-17T00:00:00+02:00</updated>
+    <id>http://codeography.com/2011/07/17/flowjs-Async-flow-control-micro-library</id>
+    <content type="html">&lt;p&gt;Flow.js is a javascript asynchronous flow-control micro library which works &lt;strong&gt;in
+node.js and in browser&lt;/strong&gt;. It allow to control how your
+asynchronous code is executed, sequentially or in parallel.
+Flow() is only 30lines.&lt;/p&gt;
+
+&lt;h1&gt;How to use it&lt;/h1&gt;
+
+&lt;p&gt;Let start with a basic example. 2 jobs run in sequence. The first job is a timeout
+so the result is delivered asynchronously, and a second job is run only &lt;em&gt;after&lt;/em&gt; the
+completion of the first.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Flow().seq(function(next){
+    console.log(&quot;step 1: started, it will last 1sec&quot;);
+    setTimeout(function(){
+        console.log(&quot;step 1: 1sec expired. Step 1 completed&quot;);
+        next();
+    }, 1000);
+}).seq(function(next){
+    console.log(&quot;step 2: run after step1 has been completed&quot;);
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will display the following&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;step 1: started, it will last 1sec
+step 1: 1sec expired. Step 1 completed
+step 2: run after step1 has been completed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;Methods&lt;/h1&gt;
+
+&lt;p&gt;In order to keep it as simple as possible, Flow has only 2 methods.&lt;/p&gt;
+
+&lt;h2&gt;.seq(callback) to execute job sequentially&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;.seq()&lt;/code&gt; is used to execute functions sequentially. The &lt;em&gt;callback&lt;/em&gt; parameter
+will be executed only after all previous jobs are completed.
+The callback signature is &lt;code&gt;callback(next, error, result)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;next(error, result)&lt;/code&gt; is the function to call when the job is completed. &lt;em&gt;error&lt;/em&gt; is to notify an error
+to the next job. &lt;em&gt;result&lt;/em&gt; to notify a result. &lt;em&gt;error&lt;/em&gt; and &lt;em&gt;result&lt;/em&gt; may be omitted, if so they are considered
+equal to &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;error&lt;/code&gt; is the error send by previous jobs&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;result&lt;/code&gt; is the result send by previous jobs&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;for example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Flow().seq(function(next){
+    console.log(&quot;first job&quot;);
+    next();
+}).seq(function(next){    
+    console.log(&quot;second job. run *after* first job&quot;);
+    next();
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.par(callback) to execute job in parallel&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;.par()&lt;/code&gt; is used to execute functions in parallel. The &lt;em&gt;callback&lt;/em&gt; parameter is the same as for &lt;code&gt;.seq()&lt;/code&gt;.
+If multiple .par() are declared one after another, they are run in parallel. The first &lt;code&gt;.seq()&lt;/code&gt; after them
+will receive all the &lt;em&gt;error&lt;/em&gt; and &lt;em&gt;result&lt;/em&gt; in Array. One array item per previous &lt;code&gt;.par()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;for example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Flow().par(function(next){
+    console.log(&quot;job foo&quot;);
+    next(null, &quot;foo&quot;);
+}).par(function(next){
+    console.log(&quot;job bar&quot;);
+    next(null, &quot;bar&quot;);
+}).seq(function(next, errors, results){
+    console.log(&quot;job run *after* the completion of foo and bar&quot;);
+    console.assert(errors.length == 2 &amp;amp;&amp;amp; errors[0] === null &amp;amp;&amp;amp; errors[1] == null)
+    console.assert(results.length == 2 &amp;amp;&amp;amp; results[0] === null &amp;amp;&amp;amp; results[1] == null)
+    next();
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That's it&lt;/p&gt;
+
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Flow.js is available on github &lt;a href='https://github.com/jeromeetienne/flow.js'&gt;here&lt;/a&gt;
+under &lt;a href='https://github.com/jeromeetienne/flow.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
+If you hit bugs, fill issues on github.
+Feel free to fork, modify and have fun with it :)&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Three.js Installation</title>
@@ -32,7 +129,8 @@ the following command&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git clone https://github.com/mrdoob/three.js.git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It will provide the whole source on your local disk.&lt;/p&gt;
+&lt;p&gt;It will provide the whole source on your local disk. You are done, just point
+a web server on it, and go in &lt;code&gt;/examples&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2&gt;Step 2: Description of the folder structure&lt;/h2&gt;
 

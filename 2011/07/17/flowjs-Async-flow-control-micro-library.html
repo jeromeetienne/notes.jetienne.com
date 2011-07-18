@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>jquery.acewidget - a jQuery plugin to easily embed ace on Jerome Etienne blog</title>
+	<title>Flow.js - async flow control micro library for node and browser on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -45,81 +45,100 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>jquery.acewidget - a jQuery plugin to easily embed ace</a></h1>
+  <h1><a href=''>Flow.js - async flow control micro library for node and browser</a></h1>
   <p class='meta'>
-    2011-04-15
+    2011-07-17
     
   </p>
-  <h1>AceWidget jQuery Plugin</h1>
+  <p>Flow.js is a javascript asynchronous flow-control micro library which works <strong>in
+node.js and in browser</strong>. It allow to control how your
+asynchronous code is executed, sequentially or in parallel.
+Flow() is only 30lines.</p>
 
-<p><a href="https://github.com/jeromeetienne/acewidget/tree/master/contrib/jquery.acewidget">jquery.acewidget.js</a> is a
-jQuery plugin for <a href="https://github.com/jeromeetienne/acewidget">acewidget</a>.
-AceWidget is a widget which make <a href="http://mozillalabs.com/skywriter/2011/01/18/mozilla-skywriter-has-been-merged-into-ace/">ace</a>
-/<a href="https://mozillalabs.com/blog/2009/02/introducing-bespin/">bespin</a> trivial to embed in your pages. The Vision is to be
-super simple to embed and have no server to setup. It provides the whole official embeded api. The
-code is available on github under MIT license. That's it. No fuss no muss.</p>
+<h1>How to use it</h1>
 
-<p>Show dont tell, a <a href="http://jeromeetienne.github.com/acewidget/demo.html">demo of acewidget</a> and a
-<a href="http://jeromeetienne.github.com/acewidget/contrib/jquery.acewidget/test.html">example of jquery.acewidget</a></p>
+<p>Let start with a basic example. 2 jobs run in sequence. The first job is a timeout
+so the result is delivered asynchronously, and a second job is run only <em>after</em> the
+completion of the first.</p>
 
-<h2>How to use it</h2>
-
-<p>First you include the plugin itself in a usual script</p>
-
-<pre><code>&lt;script type="text/javascript" src='jquery.acewidget.js'&gt;&lt;/script&gt; 
-</code></pre>
-
-<p>Then create a DOM element which gonna contains ace widget, say a div</p>
-
-<pre><code>&lt;div id="editor"&gt;&lt;/div&gt;
-</code></pre>
-
-<p>Then you create the ace widget in this container by</p>
-
-<pre><code>var acewidget = jQuery('#editor').acewidget();
-</code></pre>
-
-<p>You wait until it is loaded in your DOM</p>
-
-<pre><code>acewidget.bind('load', function(){
-    /* you start using it here */
+<pre><code>Flow().seq(function(next){
+    console.log("step 1: started, it will last 1sec");
+    setTimeout(function(){
+        console.log("step 1: 1sec expired. Step 1 completed");
+        next();
+    }, 1000);
+}).seq(function(next){
+    console.log("step 2: run after step1 has been completed");
 })
 </code></pre>
 
-<p>After that you use it with the normal ace API</p>
+<p>It will display the following</p>
 
-<h2>API</h2>
+<pre><code>step 1: started, it will last 1sec
+step 1: 1sec expired. Step 1 completed
+step 2: run after step1 has been completed
+</code></pre>
 
-<h3>to set a new text</h3>
+<h1>Methods</h1>
 
-<pre><code>acewidget.setValue("foobar", function(){
-alert("setValue "+result.status)
+<p>In order to keep it as simple as possible, Flow has only 2 methods.</p>
+
+<h2>.seq(callback) to execute job sequentially</h2>
+
+<p><code>.seq()</code> is used to execute functions sequentially. The <em>callback</em> parameter
+will be executed only after all previous jobs are completed.
+The callback signature is <code>callback(next, error, result)</code></p>
+
+<ul>
+<li><p><code>next(error, result)</code> is the function to call when the job is completed. <em>error</em> is to notify an error
+to the next job. <em>result</em> to notify a result. <em>error</em> and <em>result</em> may be omitted, if so they are considered
+equal to <code>undefined</code></p></li>
+<li><p><code>error</code> is the error send by previous jobs</p></li>
+<li><p><code>result</code> is the result send by previous jobs</p></li>
+</ul>
+
+
+<p>for example</p>
+
+<pre><code>Flow().seq(function(next){
+    console.log("first job");
+    next();
+}).seq(function(next){    
+    console.log("second job. run *after* first job");
+    next();
 })
 </code></pre>
 
-<p>The callback is optional' and notified when the action is completed.
-It is <a href="http://labs.omniti.com/labs/jsend/wiki">jsend compatible</a>.</p>
+<h2>.par(callback) to execute job in parallel</h2>
 
-<h3>to get the current text</h3>
+<p><code>.par()</code> is used to execute functions in parallel. The <em>callback</em> parameter is the same as for <code>.seq()</code>.
+If multiple .par() are declared one after another, they are run in parallel. The first <code>.seq()</code> after them
+will receive all the <em>error</em> and <em>result</em> in Array. One array item per previous <code>.par()</code></p>
 
-<pre><code>acewidget.getValue(function(result){
-    alert("getValue "+result.status+" text:"+result.data.data)
+<p>for example</p>
+
+<pre><code>Flow().par(function(next){
+    console.log("job foo");
+    next(null, "foo");
+}).par(function(next){
+    console.log("job bar");
+    next(null, "bar");
+}).seq(function(next, errors, results){
+    console.log("job run *after* the completion of foo and bar");
+    console.assert(errors.length == 2 &amp;&amp; errors[0] === null &amp;&amp; errors[1] == null)
+    console.assert(results.length == 2 &amp;&amp; results[0] === null &amp;&amp; results[1] == null)
+    next();
 })
 </code></pre>
 
-<h3>to set the tab size</h3>
+<p>That's it</p>
 
-<pre><code>acewidget.setTabSize(8, function(result){
-    alert("setTabSize "+result.status)
-})
-</code></pre>
+<h1>Conclusion</h1>
 
-<h3>to be notified when the acewidget is loaded</h3>
-
-<pre><code>acewidget.bind('load', function(){
-    alert('acewidget is loaded')
-})
-</code></pre>
+<p>Flow.js is available on github <a href='https://github.com/jeromeetienne/flow.js'>here</a>
+under <a href='https://github.com/jeromeetienne/flow.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+If you hit bugs, fill issues on github.
+Feel free to fork, modify and have fun with it :)</p>
 
 </div>
 
@@ -131,11 +150,11 @@ It is <a href="http://labs.omniti.com/labs/jsend/wiki">jsend compatible</a>.</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>17 Jul 2011</span> &raquo; <a href="/2011/07/17/flowjs-Async-flow-control-micro-library.html">Flow.js - async flow control micro library for node and browser</a></li>
-		
 			<li><span>15 Jul 2011</span> &raquo; <a href="/2011/07/15/threejs-installation.html">Three.js Installation</a></li>
 		
 			<li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/javascript-class-inheritance-ala-vaporjs-in-3-lines.html">Javascript Class Inheritance ala vapor.js in 3 lines</a></li>
+		
+			<li><span>26 May 2011</span> &raquo; <a href="/2011/05/26/Parisjs-7-slides.html">Parisjs 7 slides</a></li>
 		
 	</ul>
 </div>
