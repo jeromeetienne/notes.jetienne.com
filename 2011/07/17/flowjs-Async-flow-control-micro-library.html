@@ -126,7 +126,7 @@ will receive all the <em>error</em> and <em>result</em> in Array. One array item
 }).seq(function(next, errors, results){
     console.log("job run *after* the completion of foo and bar");
     console.assert(errors.length == 2 &amp;&amp; errors[0] === null &amp;&amp; errors[1] == null)
-    console.assert(results.length == 2 &amp;&amp; results[0] === null &amp;&amp; results[1] == null)
+    console.assert(results.length == 2 &amp;&amp; results[0] === 'foo' &amp;&amp; results[1] == 'bar')
     next();
 })
 </code></pre>
