@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Codeography</title>
+  <title>Notes from Jerome Etienne</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
-  <updated>2011-07-18T12:06:58+02:00</updated>
-  <id>http://codeography.com/</id>
+  <updated>2011-07-18T12:27:51+02:00</updated>
+  <id>http://notes.jetienne.com/</id>
   <author>
-    <name>Christopher Sexton</name>
+    <name>Jerome Etienne</name>
     <email></email>
   </author>
   
@@ -15,7 +15,7 @@
     <title>Flow.js - async flow control micro library for node and browser</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-07-17T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/07/17/flowjs-Async-flow-control-micro-library</id>
+    <id>http://notes.jetienne.com/2011/07/17/flowjs-Async-flow-control-micro-library</id>
     <content type="html">&lt;p&gt;Flow.js is a javascript asynchronous flow-control micro library which works &lt;strong&gt;in
 node.js and in browser&lt;/strong&gt;. It allow to control how your
 asynchronous code is executed, sequentially or in parallel.
@@ -112,7 +112,7 @@ Feel free to fork, modify and have fun with it :)&lt;/p&gt;
     <title>Three.js Installation</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-07-15T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/07/15/threejs-installation</id>
+    <id>http://notes.jetienne.com/2011/07/15/threejs-installation</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/mrdoob/three.js&quot;&gt;Three.js&lt;/a&gt; is a 3D library in javascript. According
 to &lt;a href=&quot;http://mrdoob.com/&quot;&gt;mrdoob&lt;/a&gt;, its author, three.js is&lt;/p&gt;
 
@@ -180,7 +180,7 @@ type of light sources. See
     <title>Javascript Class Inheritance ala vapor.js in 3 lines</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-07-10T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/07/10/javascript-class-inheritance-ala-vaporjs-in-3-lines</id>
+    <id>http://notes.jetienne.com/2011/07/10/javascript-class-inheritance-ala-vaporjs-in-3-lines</id>
     <content type="html">&lt;p&gt;This post describes a standalone way to add class inheritance in your javascript code.
 We will do that ala &lt;a href=&quot;https://github.com/madrobby/vapor.js&quot;&gt;vapor.js&lt;/a&gt;, so no
 dependancy or external framework. A vaporjs inheritance is only 3 lines!&lt;/p&gt;
@@ -258,7 +258,7 @@ semantic for &lt;em&gt;instanceOf&lt;/em&gt;.&lt;/p&gt;
     <title>Parisjs 7 slides</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-05-26T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/05/26/Parisjs-7-slides</id>
+    <id>http://notes.jetienne.com/2011/05/26/Parisjs-7-slides</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://parisjs.org&quot;&gt;parisjs #7&lt;/a&gt; was fun as always. I did a flash talk
 on &lt;a href=&quot;https://github.com/jeromeetienne/shorttag.js&quot;&gt;shorttag.js&lt;/a&gt; and presented what
 i did on &lt;a href=&quot;http://pacmaze.com&quot;&gt;pacmaze&lt;/a&gt; &lt;a href=&quot;http://buddymaze.com&quot;&gt;experiment&lt;/a&gt; this month. Here
@@ -277,7 +277,7 @@ are the slides i used.&lt;/p&gt;
     <title>Webgl London Meeting</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-05-25T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/05/25/Webgl-london-meeting</id>
+    <id>http://notes.jetienne.com/2011/05/25/Webgl-london-meeting</id>
     <content type="html">&lt;p&gt;Yesterday, the first london webgl meeting happened!
 people interested in webgl all in a same place and time, it was nice.
 see reports &lt;a href=&quot;http://learningwebgl.com/blog/?p=3770&quot;&gt;here&lt;/a&gt;
@@ -305,7 +305,7 @@ audience :) reccursive gamification ftw!&lt;/p&gt;
     <title>cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-05-18T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/05/18/cancelRequestAnimFrame-for-paul-irish-requestAnimFrame</id>
+    <id>http://notes.jetienne.com/2011/05/18/cancelRequestAnimFrame-for-paul-irish-requestAnimFrame</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://paulirish.com/&quot;&gt;Paul Irish&lt;/a&gt; recently
 wrote &lt;a href=&quot;http://paulirish.com/2011/requestanimationframe-for-smart-animating/&quot;&gt;requestAnimationFrame for smart animating&lt;/a&gt;.
 It is a polyfill so people can start use requestAnimationFrame() today and still be future proof.&lt;/p&gt;
@@ -382,7 +382,7 @@ progress, and &lt;a href=&quot;http://dev.chromium.org/developers/design-documen
     <title>a trip to html5 and game - talk at parisjs</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-28T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/28/trip-to-html5-and-game-talk-at-parisjs-6</id>
+    <id>http://notes.jetienne.com/2011/04/28/trip-to-html5-and-game-talk-at-parisjs-6</id>
     <content type="html">&lt;p&gt;Yesterday i was at &lt;a href=&quot;http://parisjs.org&quot;&gt;parisjs&lt;/a&gt; talking about html5 and game.
 I presented games from the &lt;a href=&quot;/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman.html&quot;&gt;Pacmaze&lt;/a&gt;
 &lt;a href=&quot;/2011/04/13/pacmaze-v1-release.html&quot;&gt;Experiment&lt;/a&gt; and talked about html5 technology in it.
@@ -399,7 +399,7 @@ Here are the slides i used.&lt;/p&gt;
     <title>Buddymaze - First Personn Shooter in WebGL</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-28T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/28/buddymaze-fps-in-webgl</id>
+    <id>http://notes.jetienne.com/2011/04/28/buddymaze-fps-in-webgl</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://buddymaze.com&quot;&gt;Buddymaze&lt;/a&gt; is a clone of
 &lt;a href=&quot;http://en.wikipedia.org/wiki/MIDI_Maze&quot;&gt;midimaze&lt;/a&gt;, an old game
 where people shoot at each other.
@@ -422,7 +422,7 @@ This version is rather rought, i will keep you updated. Considere it as a early 
     <title>Pacmaze v2 - Event More WebGL in Pacman</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-20T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman</id>
+    <id>http://notes.jetienne.com/2011/04/20/pacmaze-v2-even-more-WebGL-in-pacman</id>
     <content type="html">&lt;p&gt;&lt;a href='http://pacmaze.com' target='_blank'&gt;Pacmaze&lt;/a&gt; v2 is the second version of pacmaze
 in the &lt;a href='/2011/04/13/pacmaze-v1-release.html'&gt;pacmaze experiment announced here&lt;/a&gt;.&lt;/p&gt;
 
@@ -456,7 +456,7 @@ You can find it as &lt;a href=&quot;http://pacmaze.com&quot;&gt;standalone webap
     <title>wget thinks github.com is a threat</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-15T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/15/wget-thinks-github.com-is-a-threat</id>
+    <id>http://notes.jetienne.com/2011/04/15/wget-thinks-github.com-is-a-threat</id>
     <content type="html">&lt;p&gt;This is just a little post on a oddity. As a coder, i use &lt;a href=&quot;http://github.com&quot;&gt;github&lt;/a&gt;
 and &lt;a href=&quot;http://www.gnu.org/software/wget/&quot;&gt;wget&lt;/a&gt; everyday or close. When i do, i
 see this message.&lt;/p&gt;
@@ -501,7 +501,7 @@ as a &lt;code&gt;symptom of communication issue&lt;/code&gt; in the opensource c
     <title>jquery.acewidget - a jQuery plugin to easily embed ace</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-15T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/15/jquery.acewidget-a-jquery-plugin-to-easily-embed-ace</id>
+    <id>http://notes.jetienne.com/2011/04/15/jquery.acewidget-a-jquery-plugin-to-easily-embed-ace</id>
     <content type="html">&lt;h1&gt;AceWidget jQuery Plugin&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/jeromeetienne/acewidget/tree/master/contrib/jquery.acewidget&quot;&gt;jquery.acewidget.js&lt;/a&gt; is a
@@ -579,7 +579,7 @@ It is &lt;a href=&quot;http://labs.omniti.com/labs/jsend/wiki&quot;&gt;jsend com
     <title>Pacmaze V1 - a Pacman in WebGL</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-13T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/13/pacmaze-v1-release</id>
+    <id>http://notes.jetienne.com/2011/04/13/pacmaze-v1-release</id>
     <content type="html">&lt;h2&gt;tl;dr;&lt;/h2&gt;
 
 &lt;p&gt;Pacmaze v1 is a pacman in WebGL. You are a pacman trapped in a maze.
@@ -635,7 +635,7 @@ you got &lt;a href=&quot;http://pacmaze.com&quot;&gt;Pacmaze v1&lt;/a&gt;. have 
     <title>jquery.qrcode - jquery plugin for pure browser qrcode generation</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-04-07T00:00:00+02:00</updated>
-    <id>http://codeography.com/2011/04/07/jquery-qrcode</id>
+    <id>http://notes.jetienne.com/2011/04/07/jquery-qrcode</id>
     <content type="html">&lt;p&gt;&lt;a href='http://jeromeetienne.github.com/jquery-qrcode'&gt;jquery.qrcode.js&lt;/a&gt;
 is &lt;em&gt;jquery plugin for a pure browser qrcode generation&lt;/em&gt;.
 It allow you to easily add qrcode to your webpages.
@@ -681,7 +681,7 @@ Feel free to fork, modify and have fun with it :)&lt;/p&gt;
     <title>MicroEvent.js - micro event emitter in 20 lines</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-03-22T00:00:00+01:00</updated>
-    <id>http://codeography.com/2011/03/22/microeventjs</id>
+    <id>http://notes.jetienne.com/2011/03/22/microeventjs</id>
     <content type="html">&lt;p&gt;&lt;em&gt;MicroEvent.js&lt;/em&gt; is a event emitter library which provides the
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Observer_pattern&quot;&gt;observer pattern&lt;/a&gt; to javascript objects.
 It works on node.js and browser. It is a single .js file containing
@@ -770,7 +770,7 @@ Feel free to fork, modify and have fun with it :)&lt;/p&gt;
     <title>Pacmaze V0 - First multi-player first person shooter on html5</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-03-21T00:00:00+01:00</updated>
-    <id>http://codeography.com/2011/03/21/pacmaze-v0-origin</id>
+    <id>http://notes.jetienne.com/2011/03/21/pacmaze-v0-origin</id>
     <content type="html">&lt;p&gt;Last week, i started to do gamedev.
 During a code rush, i did pacmaze v0 in &lt;em&gt;36h!!!&lt;/em&gt; Then i slept a lot and published it as
 &lt;a href=&quot;https://chrome.google.com/webstore/detail/ggeliggglgbhachnoljoieibaneidchi&quot;&gt;chrome application&lt;/a&gt;
@@ -793,7 +793,7 @@ had fun writing it :)&lt;/p&gt;
     <title>Initial Post</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-03-10T00:00:00+01:00</updated>
-    <id>http://codeography.com/2011/03/10/initial-post</id>
+    <id>http://notes.jetienne.com/2011/03/10/initial-post</id>
     <content type="html">&lt;p&gt;Trying to blog again. Here is my first post.&lt;/p&gt;
 
 &lt;p&gt;Up to now i didnt considere my blogging seriously. My blog posts were kinda PostIts to me, some random texts
