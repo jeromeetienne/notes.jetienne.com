@@ -4,13 +4,13 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Codeography</title>
+  <title>Notes from Jerome Etienne</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
   <updated>{{site.time | date_to_xmlschema }}</updated>
-  <id>http://codeography.com/</id>
+  <id>http://notes.jetienne.com/</id>
   <author>
-    <name>Christopher Sexton</name>
+    <name>Jerome Etienne</name>
     <email></email>
   </author>
   {% for post in site.posts %}
@@ -18,7 +18,7 @@ layout: nil
     <title>{{ post.title }}</title>
     <link href="http://notes.jetienne.com"/>
     <updated>{{post.date | date_to_xmlschema }}</updated>
-    <id>http://codeography.com{{ post.id }}</id>
+    <id>http://notes.jetienne.com{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
