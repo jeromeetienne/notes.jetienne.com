@@ -4,7 +4,7 @@
   <title>Notes from Jerome Etienne</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
-  <updated>2011-07-18T12:29:37+02:00</updated>
+  <updated>2011-07-21T12:14:40+02:00</updated>
   <id>http://notes.jetienne.com/</id>
   <author>
     <name>Jerome Etienne</name>
@@ -12,11 +12,11 @@
   </author>
   
   <entry>
-    <title>Flow.js - async flow control micro library for node and browser</title>
+    <title>GoWithTheFlow.js - async flow control with a zen touch - for node and browser</title>
     <link href="http://notes.jetienne.com"/>
     <updated>2011-07-17T00:00:00+02:00</updated>
-    <id>http://notes.jetienne.com/2011/07/17/flowjs-Async-flow-control-micro-library</id>
-    <content type="html">&lt;p&gt;Flow.js is a javascript asynchronous flow-control micro library which works &lt;strong&gt;in
+    <id>http://notes.jetienne.com/2011/07/17/gowiththeflow.js-async-flow-control-with-a-zen-touch</id>
+    <content type="html">&lt;p&gt;GoWithTheFlow.js is a javascript asynchronous flow-control micro library which works &lt;strong&gt;in
 node.js and in browser&lt;/strong&gt;. It allow to control how your
 asynchronous code is executed, sequentially or in parallel.
 Flow() is only 30lines.&lt;/p&gt;
@@ -68,8 +68,8 @@ equal to &lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;pre&gt;&lt;code&gt;Flow().seq(function(next){
     console.log(&quot;first job&quot;);
-    next();
-}).seq(function(next){    
+    next(null, &quot;result1&quot;);
+}).seq(function(next, error, result){    
     console.log(&quot;second job. run *after* first job&quot;);
     next();
 })
@@ -101,8 +101,8 @@ will receive all the &lt;em&gt;error&lt;/em&gt; and &lt;em&gt;result&lt;/em&gt; 
 
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;Flow.js is available on github &lt;a href='https://github.com/jeromeetienne/flow.js'&gt;here&lt;/a&gt;
-under &lt;a href='https://github.com/jeromeetienne/flow.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
+&lt;p&gt;GoWithTheFlow.js is available on github &lt;a href='https://github.com/jeromeetienne/gowiththeflow.js'&gt;here&lt;/a&gt;
+under &lt;a href='https://github.com/jeromeetienne/gowiththeflow.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
 If you hit bugs, fill issues on github.
 Feel free to fork, modify and have fun with it :)&lt;/p&gt;
 </content>

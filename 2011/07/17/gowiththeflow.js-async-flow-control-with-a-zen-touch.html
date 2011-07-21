@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame() on Jerome Etienne blog</title>
+	<title>GoWithTheFlow.js - async flow control with a zen touch - for node and browser on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -45,80 +45,100 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>cancelRequestAnimationFrame() For Paul Irish requestAnimationFrame()</a></h1>
+  <h1><a href=''>GoWithTheFlow.js - async flow control with a zen touch - for node and browser</a></h1>
   <p class='meta'>
-    2011-05-18
+    2011-07-17
     
   </p>
-  <p><a href="http://paulirish.com/">Paul Irish</a> recently
-wrote <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">requestAnimationFrame for smart animating</a>.
-It is a polyfill so people can start use requestAnimationFrame() today and still be future proof.</p>
+  <p>GoWithTheFlow.js is a javascript asynchronous flow-control micro library which works <strong>in
+node.js and in browser</strong>. It allow to control how your
+asynchronous code is executed, sequentially or in parallel.
+Flow() is only 30lines.</p>
 
-<p>This post is about its counterpart,
-<a href="http://webstuff.nfshost.com/anim-timing/Overview.html#cancelRequestAnimationFrame">cancelRequestAnimFrame()</a>.
-It cancels a <a href="http://webstuff.nfshost.com/anim-timing/Overview.html#requestAnimationFrame">requestAnimationFrame()</a>,
-like <a href="https://developer.mozilla.org/en/DOM/window.clearTimeout">clearTimeout</a>
-cancels a <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a>.</p>
+<h1>How to use it</h1>
 
-<h1>Step 1: how to get the code</h1>
+<p>Let start with a basic example. 2 jobs run in sequence. The first job is a timeout
+so the result is delivered asynchronously, and a second job is run only <em>after</em> the
+completion of the first.</p>
 
-<p>First include the <code>cancelRequestAnimFrame()</code> code in your page.</p>
-
-<pre><code>window.cancelRequestAnimFrame = ( function() {
-    return window.cancelAnimationFrame          ||
-        window.webkitCancelRequestAnimationFrame    ||
-        window.mozCancelRequestAnimationFrame       ||
-        window.oCancelRequestAnimationFrame     ||
-        window.msCancelRequestAnimationFrame        ||
-        clearTimeout
-} )();
+<pre><code>Flow().seq(function(next){
+    console.log("step 1: started, it will last 1sec");
+    setTimeout(function(){
+        console.log("step 1: 1sec expired. Step 1 completed");
+        next();
+    }, 1000);
+}).seq(function(next){
+    console.log("step 2: run after step1 has been completed");
+})
 </code></pre>
 
-<p>Add <code>requestAnimFrame()</code> too. It is a slightly modified version of
-<a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">paul's</a>
-to return setTimeout() handle.</p>
+<p>It will display the following</p>
 
-<pre><code>window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       || 
-        window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame    || 
-        window.oRequestAnimationFrame      || 
-        window.msRequestAnimationFrame     || 
-        function(/* function */ callback, /* DOMElement */ element){
-            return window.setTimeout(callback, 1000 / 60);
-        };
-})();
+<pre><code>step 1: started, it will last 1sec
+step 1: 1sec expired. Step 1 completed
+step 2: run after step1 has been completed
 </code></pre>
 
-<h1>Step 2: how to use it</h1>
+<h1>Methods</h1>
 
-<p>Here is a possible way to use it.
-<strong><em>Show, dont tell</em></strong>, here is a <a href="http://jsfiddle.net/ghjKC/3/">live demo</a> on jsfiddle</p>
+<p>In order to keep it as simple as possible, Flow has only 2 methods.</p>
 
-<pre><code>// to store the request
-var request;
+<h2>.seq(callback) to execute job sequentially</h2>
 
-// start and run the animloop
-(function animloop(){
-  render();
-  request = requestAnimFrame(animloop, element);
-})();
+<p><code>.seq()</code> is used to execute functions sequentially. The <em>callback</em> parameter
+will be executed only after all previous jobs are completed.
+The callback signature is <code>callback(next, error, result)</code></p>
 
-// cancelRequestAnimFrame to stop the loop in 1 second
-setTimeout(function(){
-    cancelRequestAnimFrame(request);                
-}, 1*1000)
+<ul>
+<li><p><code>next(error, result)</code> is the function to call when the job is completed. <em>error</em> is to notify an error
+to the next job. <em>result</em> to notify a result. <em>error</em> and <em>result</em> may be omitted, if so they are considered
+equal to <code>undefined</code></p></li>
+<li><p><code>error</code> is the error send by previous jobs</p></li>
+<li><p><code>result</code> is the result send by previous jobs</p></li>
+</ul>
+
+
+<p>for example</p>
+
+<pre><code>Flow().seq(function(next){
+    console.log("first job");
+    next(null, "result1");
+}).seq(function(next, error, result){    
+    console.log("second job. run *after* first job");
+    next();
+})
 </code></pre>
 
-<h1>About requestAnimationFrame</h1>
+<h2>.par(callback) to execute job in parallel</h2>
 
-<p>In the past months, much has been done for web graphics. Among them,
-<a href="http://webstuff.nfshost.com/anim-timing/Overview.html">requestAnimationFrame()</a>
-is used to make smoother animation while not wasting useless
-rescources when not visible.
-The <a href="http://webstuff.nfshost.com/anim-timing/Overview.html">spec</a> is making good
-progress, and <a href="http://dev.chromium.org/developers/design-documents/requestanimationframe-implementation">several</a>
-<a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame">implementations</a> are already deployed.</p>
+<p><code>.par()</code> is used to execute functions in parallel. The <em>callback</em> parameter is the same as for <code>.seq()</code>.
+If multiple .par() are declared one after another, they are run in parallel. The first <code>.seq()</code> after them
+will receive all the <em>error</em> and <em>result</em> in Array. One array item per previous <code>.par()</code></p>
+
+<p>for example</p>
+
+<pre><code>Flow().par(function(next){
+    console.log("job foo");
+    next(null, "foo");
+}).par(function(next){
+    console.log("job bar");
+    next(null, "bar");
+}).seq(function(next, errors, results){
+    console.log("job run *after* the completion of foo and bar");
+    console.assert(errors.length == 2 &amp;&amp; errors[0] === null &amp;&amp; errors[1] == null)
+    console.assert(results.length == 2 &amp;&amp; results[0] === 'foo' &amp;&amp; results[1] == 'bar')
+    next();
+})
+</code></pre>
+
+<p>That's it</p>
+
+<h1>Conclusion</h1>
+
+<p>GoWithTheFlow.js is available on github <a href='https://github.com/jeromeetienne/gowiththeflow.js'>here</a>
+under <a href='https://github.com/jeromeetienne/gowiththeflow.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+If you hit bugs, fill issues on github.
+Feel free to fork, modify and have fun with it :)</p>
 
 </div>
 
@@ -130,11 +150,11 @@ progress, and <a href="http://dev.chromium.org/developers/design-documents/reque
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>17 Jul 2011</span> &raquo; <a href="/2011/07/17/gowiththeflow.js-async-flow-control-with-a-zen-touch.html">GoWithTheFlow.js - async flow control with a zen touch - for node and browser</a></li>
-		
 			<li><span>15 Jul 2011</span> &raquo; <a href="/2011/07/15/threejs-installation.html">Three.js Installation</a></li>
 		
 			<li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/javascript-class-inheritance-ala-vaporjs-in-3-lines.html">Javascript Class Inheritance ala vapor.js in 3 lines</a></li>
+		
+			<li><span>26 May 2011</span> &raquo; <a href="/2011/05/26/Parisjs-7-slides.html">Parisjs 7 slides</a></li>
 		
 	</ul>
 </div>
