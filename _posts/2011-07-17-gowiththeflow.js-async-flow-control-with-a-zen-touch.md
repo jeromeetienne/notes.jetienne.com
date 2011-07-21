@@ -1,10 +1,10 @@
 ---
 layout: post
 published: true
-title: Flow.js - async flow control micro library for node and browser
+title: GoWithTheFlow.js - async flow control with a zen touch - for node and browser
 ---
 
-Flow.js is a javascript asynchronous flow-control micro library which works **in
+GoWithTheFlow.js is a javascript asynchronous flow-control micro library which works **in
 node.js and in browser**. It allow to control how your
 asynchronous code is executed, sequentially or in parallel.
 Flow() is only 30lines. 
@@ -53,8 +53,8 @@ for example
 
     Flow().seq(function(next){
         console.log("first job");
-        next();
-    }).seq(function(next){    
+        next(null, "result1");
+    }).seq(function(next, error, result){    
         console.log("second job. run *after* first job");
         next();
     })
@@ -85,7 +85,7 @@ That's it
 
 # Conclusion
 
-Flow.js is available on github <a href='https://github.com/jeromeetienne/flow.js'>here</a>
-under <a href='https://github.com/jeromeetienne/flow.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+GoWithTheFlow.js is available on github <a href='https://github.com/jeromeetienne/gowiththeflow.js'>here</a>
+under <a href='https://github.com/jeromeetienne/gowiththeflow.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
 If you hit bugs, fill issues on github.
 Feel free to fork, modify and have fun with it :)
