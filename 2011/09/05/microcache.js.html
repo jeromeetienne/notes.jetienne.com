@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Parisjs 7 slides on Jerome Etienne blog</title>
+	<title>microcache.js - cache micro library on Jerome Etienne blog</title>
 	<meta name="author" content="Jerome Etienne" />
 	
 	
@@ -45,22 +45,71 @@
 	</div>
   
 	<div id="post">
-  <h1><a href=''>Parisjs 7 slides</a></h1>
+  <h1><a href=''>microcache.js - cache micro library</a></h1>
   <p class='meta'>
-    2011-05-26
+    2011-09-05
     
   </p>
-  <p><a href="http://parisjs.org">parisjs #7</a> was fun as always. I did a flash talk
-on <a href="https://github.com/jeromeetienne/shorttag.js">shorttag.js</a> and presented what
-i did on <a href="http://pacmaze.com">pacmaze</a> <a href="http://buddymaze.com">experiment</a> this month. Here
-are the slides i used.</p>
+  <p><strong>microcache.js</strong> is a micro library to handle in-memory cache. It is less than
+20 lines and works in node and browser.
+It is available on github <a href='https://github.com/jeromeetienne/microcache.js'>here</a>
+under <a href='https://github.com/jeromeetienne/microcache.js/blob/master/MIT-LICENSE.txt'>MIT license</a>.
+If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)</p>
 
-<center>
-    <iframe src="https://docs.google.com/present/embed?id=dhng4bgf_66dbnvxjch" frameborder="0" width="410" height="342"></iframe>
-</center>
+<h1>Install it</h1>
 
+<p>To install it on node</p>
 
-<p>Btw ryah is coming to paris on june 8th, <a href="http://parisnodemeetup.eventbrite.com/">register</a>.</p>
+<pre><code>npm install microcache
+</code></pre>
+
+<p>To install the browser version, download it and include it like that</p>
+
+<pre><code>&lt;script src="microcache.js"&gt;&lt;/script&gt;   
+</code></pre>
+
+<h1>API</h1>
+
+<p>To instanciate a cache, do the following. You can have as many instances you want.</p>
+
+<pre><code>var microcache = new MicroCache();
+</code></pre>
+
+<h2>.get(key)</h2>
+
+<p>To get a cached asset which is in the cache. Each cached element has a unique
+key to identify it.</p>
+
+<pre><code>microcache.get('foo');
+</code></pre>
+
+<h2>.set(key, value)</h2>
+
+<p>To set a element value in the cache.</p>
+
+<pre><code>microcache.set('foo', 'bar');
+</code></pre>
+
+<h2>.contains(key)</h2>
+
+<p>To know if a given asset is currently in the cache.</p>
+
+<pre><code>microcache.contains('foo');
+</code></pre>
+
+<h2>.values()</h2>
+
+<p>To return all the elements currently in the cache</p>
+
+<pre><code>microcache.values();
+</code></pre>
+
+<h2>.getSet(key, value)</h2>
+
+<p>To get an element from the cache, if it isnt already present, store it then return it</p>
+
+<pre><code>microcache.getSet(key, value);
+</code></pre>
 
 </div>
 
@@ -72,11 +121,11 @@ are the slides i used.</p>
 	<h2>Related Posts</h2>
 	<ul class="posts">
 		
-			<li><span>05 Sep 2011</span> &raquo; <a href="/2011/09/05/microcache.js.html">microcache.js - cache micro library</a></li>
-		
 			<li><span>17 Jul 2011</span> &raquo; <a href="/2011/07/17/gowiththeflow.js-async-flow-control-with-a-zen-touch.html">GoWithTheFlow.js - async flow control with a zen touch - for node and browser</a></li>
 		
 			<li><span>10 Jul 2011</span> &raquo; <a href="/2011/07/10/javascript-class-inheritance-ala-vaporjs-in-3-lines.html">Javascript Class Inheritance ala vapor.js in 3 lines</a></li>
+		
+			<li><span>26 May 2011</span> &raquo; <a href="/2011/05/26/Parisjs-7-slides.html">Parisjs 7 slides</a></li>
 		
 	</ul>
 </div>

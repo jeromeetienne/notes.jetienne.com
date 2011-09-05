@@ -4,12 +4,80 @@
   <title>Notes from Jerome Etienne</title>
   <link href="http://notes.jetienne.com/atom.xml" rel="self"/>
   <link href="http://notes.jetienne.com/"/>
-  <updated>2011-07-21T12:14:40+02:00</updated>
+  <updated>2011-09-05T12:14:13+02:00</updated>
   <id>http://notes.jetienne.com/</id>
   <author>
     <name>Jerome Etienne</name>
     <email></email>
   </author>
+  
+  <entry>
+    <title>microcache.js - cache micro library</title>
+    <link href="http://notes.jetienne.com"/>
+    <updated>2011-09-05T00:00:00+02:00</updated>
+    <id>http://notes.jetienne.com/2011/09/05/microcache.js</id>
+    <content type="html">&lt;p&gt;&lt;strong&gt;microcache.js&lt;/strong&gt; is a micro library to handle in-memory cache. It is less than
+20 lines and works in node and browser.
+It is available on github &lt;a href='https://github.com/jeromeetienne/microcache.js'&gt;here&lt;/a&gt;
+under &lt;a href='https://github.com/jeromeetienne/microcache.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
+If you hit bugs, fill issues on github. Feel free to fork, modify and have fun with it :)&lt;/p&gt;
+
+&lt;h1&gt;Install it&lt;/h1&gt;
+
+&lt;p&gt;To install it on node&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install microcache
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To install the browser version, download it and include it like that&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&quot;microcache.js&quot;&amp;gt;&amp;lt;/script&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;API&lt;/h1&gt;
+
+&lt;p&gt;To instanciate a cache, do the following. You can have as many instances you want.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var microcache = new MicroCache();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.get(key)&lt;/h2&gt;
+
+&lt;p&gt;To get a cached asset which is in the cache. Each cached element has a unique
+key to identify it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;microcache.get('foo');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.set(key, value)&lt;/h2&gt;
+
+&lt;p&gt;To set a element value in the cache.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;microcache.set('foo', 'bar');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.contains(key)&lt;/h2&gt;
+
+&lt;p&gt;To know if a given asset is currently in the cache.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;microcache.contains('foo');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.values()&lt;/h2&gt;
+
+&lt;p&gt;To return all the elements currently in the cache&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;microcache.values();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;.getSet(key, value)&lt;/h2&gt;
+
+&lt;p&gt;To get an element from the cache, if it isnt already present, store it then return it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;microcache.getSet(key, value);
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
   
   <entry>
     <title>GoWithTheFlow.js - async flow control with a zen touch - for node and browser</title>
@@ -105,74 +173,6 @@ will receive all the &lt;em&gt;error&lt;/em&gt; and &lt;em&gt;result&lt;/em&gt; 
 under &lt;a href='https://github.com/jeromeetienne/gowiththeflow.js/blob/master/MIT-LICENSE.txt'&gt;MIT license&lt;/a&gt;.
 If you hit bugs, fill issues on github.
 Feel free to fork, modify and have fun with it :)&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <title>Three.js Installation</title>
-    <link href="http://notes.jetienne.com"/>
-    <updated>2011-07-15T00:00:00+02:00</updated>
-    <id>http://notes.jetienne.com/2011/07/15/threejs-installation</id>
-    <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/mrdoob/three.js&quot;&gt;Three.js&lt;/a&gt; is a 3D library in javascript. According
-to &lt;a href=&quot;http://mrdoob.com/&quot;&gt;mrdoob&lt;/a&gt;, its author, three.js is&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;The aim of the project is to create a lightweight 3D engine with a very low level
-of complexity — in other words, for dummies. The engine can render using &amp;lt;canvas&amp;gt;
-, &amp;lt;svg&amp;gt; and WebGL.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Step 1: get the source&lt;/h2&gt;
-
-&lt;p&gt;The source are available &lt;a href=&quot;https://github.com/mrdoob/three.js&quot;&gt;here&lt;/a&gt;. Use
-the following command&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/mrdoob/three.js.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It will provide the whole source on your local disk. You are done, just point
-a web server on it, and go in &lt;code&gt;/examples&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Step 2: Description of the folder structure&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/utils&lt;/code&gt; it is a bunch of utilities (see &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/utils&quot;&gt;here&lt;/a&gt;).
-You can find the script to &lt;a href=&quot;https://github.com/mrdoob/three.js/blob/master/utils/build.sh&quot;&gt;build the releases&lt;/a&gt;
-(concatenate the files, minify them, all that).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/build&lt;/code&gt; It is an administrative directory where the build release is stored. Not really important
-for a user, it is more for a developper of the library itself.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/src&lt;/code&gt; It is the library code in itself. We will study that in more details later. Meanwhile dont hesitate
-to go look: it is rather small and clean.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/examples&lt;/code&gt; It is a list of all the examples. They kinda are the documentation of three.js, try
-them. They are the meat, if you like something, just do view-source:
-
-&lt;ul&gt;
-&lt;li&gt;some of them are for &amp;lt;canvas&gt; rendering, most of them are for WebGL. Three.js is able to render 3D scene
-on canvas, Dom, SVG and obviously WebGL (with various level of support). See &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/renderers&quot;&gt;here&lt;/a&gt;
-for details.&lt;/li&gt;
-&lt;li&gt;Some are focused on &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/extras/geometries&quot;&gt;geometry&lt;/a&gt; i.e.
-the shape of the objects. See &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_geometry_colors.html&quot;&gt;here&lt;/a&gt;
-, &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_geometry_cube.html&quot;&gt;here&lt;/a&gt;
-and &lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_geometry_cube.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Some are focused on the &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/materials&quot;&gt;material&lt;/a&gt; i.e.
-kindof the colors and the texture of the objects. See
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_materials_texture_filters.html&quot;&gt;here&lt;/a&gt;,
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_materials_texture_filters.html&quot;&gt;here&lt;/a&gt; and
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_materials_normalmap.html&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Others are focused on &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/lights&quot;&gt;light&lt;/a&gt;, there are different
-type of light sources. See
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights.html&quot;&gt;here&lt;/a&gt;,
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/canvas_lights_pointlights_smooth.html&quot;&gt;here&lt;/a&gt; and
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_lights_pointlights.html&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Some are focused on &lt;a href=&quot;https://github.com/mrdoob/three.js/tree/master/src/extras/physics&quot;&gt;collitions&lt;/a&gt;. See
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_collisions_trigger.html&quot;&gt;here&lt;/a&gt;,
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples/webgl_collisions_reaction.html&quot;&gt;here&lt;/a&gt; and
-&lt;a href=&quot;http://mrdoob.github.com/three.js/examples//webgl_collisions_mesh.html&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Point a web server on &lt;code&gt;three.js&lt;/code&gt; source tree and go in &lt;code&gt;/examples&lt;/code&gt; to try them. It is fun!&lt;/p&gt;
 </content>
   </entry>
   
